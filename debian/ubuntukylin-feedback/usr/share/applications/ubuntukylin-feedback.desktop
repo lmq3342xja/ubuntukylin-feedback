@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=ubuntukylin-feedback
+Name[zh_CN]=ubuntukylin-feedback.desktop
+Comment=意见和建议-UbuntuKylin
+Exec=/usr/bin/ubuntukylin-feedback
+Icon=fcitx_ubuntukylin.png
+StartupNotify=true
+Terminal=false
+Type=Application
+Categories=GNOME;GTK;RasterGraphics;Viewer;Utility;Network;

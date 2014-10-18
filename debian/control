@@ -1,0 +1,14 @@
+Source: ubuntukylin-feedback
+Section: utils
+Priority: extra
+Maintainer: xiaoyiwu <xiaoyiwu@ubuntukylin.com >
+Build-Depends: debhelper (>= 9), libqt4-dev (>= 4:4.8.0) 
+Standards-Version: 0.1
+Homepage: http://code.google.com/p/fcitx
+
+Package: ubuntukylin-feedback
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: ubuntukylin-feedback for ubuntukylin
+
+
