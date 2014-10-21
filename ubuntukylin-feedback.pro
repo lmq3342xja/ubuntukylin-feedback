@@ -20,7 +20,7 @@ INSTALLS += inst1 \
     inst3 \
     target
 QT       += core gui
-
+LIBS += -lcurl
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = ubuntukylin-feedback
@@ -28,8 +28,10 @@ TEMPLATE = app
 
 
 SOURCES += src/main.cpp \
-    src/mainwindow.cpp
+    src/mainwindow.cpp \
+    src/curl_post.cpp
 
-HEADERS  += src/mainwindow.h
+HEADERS  += src/mainwindow.h \
+    src/curl_post.h
 
 FORMS    += src/mainwindow.ui
