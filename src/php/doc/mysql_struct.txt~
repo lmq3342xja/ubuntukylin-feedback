@@ -1,0 +1,14 @@
+在服务器建表结构：
+1,意见反馈表 feedback_table：
+name   varchar(20),  	//用户名
+email   varchar(30),  	//用户email
+location varchar(30),   //用户地址（可选）
+telephone varchar(20),  //用户电话（可选）
+create_time vachar(20); //提交时间
+create_time_int int(20);//
+solve_time varchar(20);	//解决时间
+suggestion varchar(4096)//意见和建议
+
+
+
+

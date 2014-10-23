@@ -145,16 +145,32 @@ p, li { white-space: pre-wrap; }
      <item>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <widget class="QLineEdit" name="lineEdit_name"/>
+        <widget class="QLineEdit" name="lineEdit_name">
+         <property name="maxLength">
+          <number>15</number>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit_email"/>
+        <widget class="QLineEdit" name="lineEdit_email">
+         <property name="maxLength">
+          <number>20</number>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit_location"/>
+        <widget class="QLineEdit" name="lineEdit_location">
+         <property name="maxLength">
+          <number>20</number>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit_telephone"/>
+        <widget class="QLineEdit" name="lineEdit_telephone">
+         <property name="maxLength">
+          <number>20</number>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>

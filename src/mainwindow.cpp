@@ -4,6 +4,9 @@
 #include <QDesktopWidget>
 #include <QSettings>
 #include <QMessageBox>
+#include <QValidator>
+#include <QRegExp>
+#include <QRegExpValidator>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -15,6 +18,9 @@ MainWindow::MainWindow(QWidget *parent) :
     QDesktopWidget* desktop = QApplication::desktop();
     move((desktop->width() - this->width())/2, (desktop->height() - this->height())/2);
     ui->lineEdit_name->setFocus();
+    QRegExp rx("^[0-9]*[1-9][0-9]*$");
+    QRegExpValidator *pRevalidotor = new QRegExpValidator(rx, this);
+    ui->lineEdit_telephone->setValidator(pRevalidotor);
 }
 
 MainWindow::~MainWindow()
@@ -34,6 +40,11 @@ void MainWindow::on_pushButton_submit_released()
     if(ui->lineEdit_email->text()=="")
     {
         QMessageBox::warning(this, "warning", tr("Please input your Email !"), QMessageBox::Yes , QMessageBox::Yes);
+        return;
+    }
+    if(ui->lineEdit_email->text().indexOf("@")==-1)
+    {
+        QMessageBox::warning(this, "warning", tr("Email is error !"), QMessageBox::Yes , QMessageBox::Yes);
         return;
     }
     if(suggestion_info =="")

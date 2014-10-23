@@ -2,7 +2,7 @@
 #include <curl/curl.h>
 #include <QDebug>
 
-#define POSTURL "http://localhost/ubuntukylin_feedback.php"
+#define POSTURL "http://localhost/php/ubuntukylin_feedback.php"
 
 //QString->char *
 static void save_q_string_2_m_string(QString q_string, char **m_buf)

@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>反馈主页</title>
+</head>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+<body>
+<div id="s_top"></div>
+<div id="s_center">
+  <div class="s_center1">
+
+<h3><a href="index.php" target="_self">首页</a> &gt;&nbsp;<a href="message.php">留言发表</a> &gt; 留言查看</h3>
+<?php
+session_start();
+
+	 
+
+$con = mysql_connect("localhost","root","1");
+if (!$con)
+  {
+  die('Could not connect: ' . mysql_error());
+  }
+//mysql_select_db() 函数选取数据库
+mysql_select_db("feedback_db", $con);
+mysql_query("set names utf8");  
+
+//将表中数据读取出来
+
+
+
+$result = mysql_query("SELECT count( * ) FROM feedback_table");
+$total = 0;
+while($row = mysql_fetch_array($result))
+{ 
+	$total = $row[0];
+}
+
+$total_page = 0;
+if ($total%5 == 0)
+	$total_page = (int)($total / 5);
+else
+	$total_page = (int)($total / 5 + 1);
+
+$page = @$_GET["page"];
+if (!isset($page))
+	$page = 0;
+if ($page < 0)
+	$page = 0;
+
+if ($page >= $total_page)
+	$page = $total_page - 1;
+
+echo "<div class='msg_look' id='msg_look'>";
+
+$start = $page * 5;
+
+$result = mysql_query("SELECT * FROM feedback_table order by name desc LIMIT $start, 5");
+
+while($row = mysql_fetch_array($result))
+  { 
+	 echo "<p class='m_p'>姓名：".$row['name']." 　　邮箱：".$row['email']." 　所在地：".$row['location']."　联系电话：".$row['telephone']."</p>";
+     echo "<p class='m_pc'>意见和建议：<br/> 　　<span>".$row['suggestion']."</span></p><br/><hr><br/>";
+  
+ }
+
+mysql_close($con);
+
+?>
+</div>
+
+ <div id="pages" style="font-size:12px; width:100%; line-height:40px; text-align:center; margin-top:20px">
+ <b>共<?=$total_page?>页</b> 
+ <?php
+ for($i = 0; $i < $total_page; $i ++)
+ 	echo "<a href=\"selectmsg.php?page=".$i."\">第".($i + 1)."页</a> ";
+
+ 	echo " <a href=\"selectmsg.php?page=".($page - 1)."\">上一页</a>  <a href=\"selectmsg.php?page=".($page + 1)."\">下一页</a>";
+
+ ?>
+ </div>
+</div>
+<div id="s_bottom"> <br/>
+  <p>Copyright 1999-2013 &copy; 版权所有：国防科学技术大学</p>
+  <p>电话：(0731)84575601 网络服务热线：84573000</p>
+</div>
+</div>
+</body>
+</html>
