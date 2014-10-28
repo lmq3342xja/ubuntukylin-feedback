@@ -2,8 +2,8 @@ Package: ubuntukylin-feedback
 Version: 0.1
 Architecture: i386
 Maintainer: xiaoyiwu <xiaoyiwu@ubuntukylin.com >
-Installed-Size: 64
-Depends: libc6 (>= 2.0), libgcc1 (>= 1:4.1.1), libqtcore4 (>= 4:4.8.0), libqtgui4 (>= 4:4.8.0), libstdc++6 (>= 4.1.1)
+Installed-Size: 83
+Depends: libc6 (>= 2.0), libcurl3-nss (>= 7.23.1), libgcc1 (>= 1:4.1.1), libqt4-network (>= 4:4.8.0), libqtcore4 (>= 4:4.8.0), libqtgui4 (>= 4:4.8.0), libqtwebkit4, libstdc++6 (>= 4.1.1)
 Section: utils
 Priority: extra
 Homepage: http://code.google.com/p/fcitx

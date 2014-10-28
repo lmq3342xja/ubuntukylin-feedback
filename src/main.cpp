@@ -33,6 +33,8 @@ int main(int argc, char *argv[])
     if(locale == "zh_CN") {
         if (translator.load("/usr/share/ubuntukylin-feedback/ubuntukylin_feedback_zh_CN.qm") == false)
              qDebug() << "load ubuntukylin_feedback_zh_CN.qm error.";
+        if (translator.load("/usr/share/qt4/translations/qt_zh_CN.qm")==false)
+            qDebug() << "load qt_zh_CN.qm error.";
     }
     QApplication app(argc, argv);
     app.installTranslator(&translator);
