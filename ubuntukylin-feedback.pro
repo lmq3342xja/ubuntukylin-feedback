@@ -6,7 +6,7 @@
 
 ARCH      = x86
 
-inst1.files += ubuntukylin_feedback.png
+inst1.files += ubuntukylin_feedback.svg
 inst1.path = /usr/share/pixmaps
 inst2.files += ubuntukylin-feedback.desktop
 inst2.path = /usr/share/applications
@@ -19,7 +19,7 @@ INSTALLS += inst1 \
     inst2 \
     inst3 \
     target
-QT       += core gui
+QT       += core gui webkit network declarative
 LIBS += -lcurl
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -29,9 +29,13 @@ TEMPLATE = app
 
 SOURCES += src/main.cpp \
     src/mainwindow.cpp \
-    src/curl_post.cpp
+    src/curl_post.cpp \
+    src/mywebpage.cpp
 
 HEADERS  += src/mainwindow.h \
-    src/curl_post.h
+    src/curl_post.h \
+    src/mywebpage.h
 
 FORMS    += src/mainwindow.ui
+
+RESOURCES +=
